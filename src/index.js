@@ -1,8 +1,6 @@
 import './sass/index.scss';
 import NewsApiService from './api-service';//додавання джіес файлу
 import { Notify } from 'notiflix/build/notiflix-notify-aio';//для повідомлень
-
-
 import SimpleLightbox from 'simplelightbox';//додання бібліотеки
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -13,7 +11,7 @@ let lightbox = new SimpleLightbox('.photo-card a', {
 });
 
 export { lightbox };
-  
+
 const refs = {
   searchForm: document.querySelector('.search-form'),
   galleryContainer: document.querySelector('.gallery'),
@@ -73,7 +71,7 @@ async function fetchGallery() {
   onRenderGallery(hits);
   show += hits.length;
 
-  if (isShown < total) {
+  if (show < total) {
     Notify.success(`Hooray! We found ${total} images !!!`);
     refs.loadMore.classList.remove('is-hidden');
   }
@@ -83,8 +81,8 @@ async function fetchGallery() {
   }// досяягли результатів кінця пошуку і ховає кнопку
 }
 
-function onRenderGallery(elem) {// у відповіді на запит буде масив зображень з такими властивостями як вказані
-  const markup = elem
+function onRenderGallery(elements) {// у відповіді на запит буде масив зображень з такими властивостями як вказані
+  const markup = elements
     .map(
       ({
         webformatURL,
