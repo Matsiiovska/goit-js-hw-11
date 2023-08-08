@@ -23,6 +23,7 @@ const newsApiService = new NewsApiService();
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMore.addEventListener('click', onLoadMore);
 
+
 const options = {
   rootMargin: '50px',
   root: null,
@@ -45,7 +46,7 @@ function onSearch(element) {
 
   show = 0;
   fetchGallery();
-  onRenderGallery(hits);
+  /*onRenderGallery(hits);*/ 
 }
 
 function onLoadMore() {
