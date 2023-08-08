@@ -25,8 +25,6 @@ export default class NewsApiService {
       const resp = await axios(axiosOptions);//відповідь
 
       const data = resp.data;
-
-      this.incrementPage();//збільшення сторінки
       return data;
     } catch (error) {
       console.error(error);
